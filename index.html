@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoorDrop - Fast Snack Delivery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ NAVIGATION ============ -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo" onclick="window.location.href='index.html'">🎉 Door<span>Drop</span></div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="nav-cart-btn" onclick="openCart()">
+            🛒 Cart <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+    </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Your Favorite Snacks <span class="highlight">Delivered in Minutes!</span></h1>
+        <p>Premium quality instant noodles, chips, biscuits & more delivered straight to your room. Get 40% OFF on first order!</p>
+        <div class="cta-buttons">
+            <button class="btn-primary" onclick="scrollToSection('offer')">🛍️ Shop Now</button>
+            <button class="btn-secondary" onclick="showToast('📱 Download App Coming Soon!')">📱 Download App</button>
+        </div>
+    </div>
+    <div class="hero-image">
+        <div class="floating-item item1">🍜</div>
+        <div class="floating-item item2">🥔</div>
+        <div class="floating-item item3">🍪</div>
+        <div class="floating-item item4">🍫</div>
+        <div class="floating-item item5">☕</div>
+    </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+    <div class="stat-item" onclick="animateCount(this)">
+        <h3 data-count="100000">100K+</h3><p>Happy Foodies</p>
+    </div>
+    <div class="stat-item" onclick="animateCount(this)">
+        <h3 data-count="500">500+</h3><p>Snack Products</p>
+    </div>
+    <div class="stat-item" onclick="animateCount(this)">
+        <h3 data-count="15">15-20</h3><p>Mins Delivery</p>
+    </div>
+    <div class="stat-item" onclick="animateCount(this)">
+        <h3 data-count="99">99%</h3><p>Customer Love</p>
+    </div>
+</section>
+
+<!-- ============ FEATURES PREVIEW ============ -->
+<section class="container">
+    <h2 class="section-title">Why Choose DoorDrop?</h2>
+    <p class="section-subtitle">Experience lightning-fast snack delivery with our premium service</p>
+    <div class="features-preview">
+        <div class="feature-card" onmouseover="rotateCard(this)" onmouseout="resetCard(this)">
+            <div class="feature-icon">⚡</div>
+            <h3>Super Fast Delivery</h3>
+            <p>15-20 minutes delivery to your room. Track your order live!</p>
+        </div>
+        <div class="feature-card" onmouseover="rotateCard(this)" onmouseout="resetCard(this)">
+            <div class="feature-icon">🎁</div>
+            <h3>Best Prices Everyday</h3>
+            <p>40% cheaper than retail stores. Daily deals and flash sales!</p>
+        </div>
+        <div class="feature-card" onmouseover="rotateCard(this)" onmouseout="resetCard(this)">
+            <div class="feature-icon">✨</div>
+            <h3>100% Fresh Stock</h3>
+            <p>Always fresh from authorized distributors. Quality guaranteed!</p>
+        </div>
+        <div class="feature-card" onmouseover="rotateCard(this)" onmouseout="resetCard(this)">
+            <div class="feature-icon">🛡️</div>
+            <h3>Safe & Secure</h3>
+            <p>SSL encrypted payments and verified sellers. Shop with confidence!</p>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="features.html" class="btn-primary">See All Features →</a>
+    </div>
+</section>
+
+<!-- ============ SPECIAL OFFER ============ -->
+<section class="offer-section" id="offer">
+    <div class="offer-box">
+        <h2>🎉 Special Launch Offer</h2>
+        <h3 class="price-tag">Get 40% OFF</h3>
+        <p>on your first order with code: <strong>DROP40</strong></p>
+        <div class="countdown">
+            <div class="timer-box"><span id="hours">24</span><p>Hours</p></div>
+            <div class="timer-box"><span id="minutes">59</span><p>Minutes</p></div>
+            <div class="timer-box"><span id="seconds">59</span><p>Seconds</p></div>
+        </div>
+        <a href="products.html" class="btn-primary">Shop Now & Save</a>
+    </div>
+</section>
+
+<!-- ============ POPULAR PRODUCTS ============ -->
+<section class="container">
+    <h2 class="section-title">🔥 Most Loved Snacks</h2>
+    <div class="products-grid">
+
+        <div class="product-card" id="card-1" data-name="Maggi 2-Minute Noodles" data-price="12" data-icon="🍜">
+            <div class="product-image">
+                <span>🍜</span>
+                <span class="product-badge">Best Seller</span>
+            </div>
+            <div class="product-body">
+                <h3>Maggi 2-Minute Noodles</h3>
+                <p>🌶️ Classic Masala</p>
+                <p class="desc">India's favorite instant noodles - quick, tasty, filling!</p>
+                <div class="price-footer">
+                    <span class="price">₹12/pack</span>
+                    <div class="card-action">
+                        <button class="btn-small" onclick="addItem(event,1,'Maggi 2-Minute Noodles',12,'🍜')">Add 🛒</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" id="card-2" data-name="Lays Classic Chips" data-price="20" data-icon="🥔">
+            <div class="product-image">
+                <span>🥔</span>
+                <span class="product-badge">Crispy</span>
+            </div>
+            <div class="product-body">
+                <h3>Lays Classic Chips</h3>
+                <p>🌟 Golden & Salty</p>
+                <p class="desc">Crispy golden potato chips for the perfect munch time</p>
+                <div class="price-footer">
+                    <span class="price">₹20/pack</span>
+                    <div class="card-action">
+                        <button class="btn-small" onclick="addItem(event,2,'Lays Classic Chips',20,'🥔')">Add 🛒</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" id="card-3" data-name="Kurkure Masala Munch" data-price="18" data-icon="🟠">
+            <div class="product-image">
+                <span>🟠</span>
+                <span class="product-badge">Sale -15%</span>
+            </div>
+            <div class="product-body">
+                <h3>Kurkure Masala Munch</h3>
+                <p>🔥 Spicy & Tasty</p>
+                <p class="desc">Twisted corn snack with authentic Indian masala flavor</p>
+                <div class="price-footer">
+                    <span class="price">₹18/pack</span>
+                    <div class="card-action">
+                        <button class="btn-small" onclick="addItem(event,3,'Kurkure Masala Munch',18,'🟠')">Add 🛒</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" id="card-4" data-name="Parle-G Biscuit" data-price="10" data-icon="🍪">
+            <div class="product-image">
+                <span>🍪</span>
+                <span class="product-badge">Popular</span>
+            </div>
+            <div class="product-body">
+                <h3>Parle-G Biscuit</h3>
+                <p>☕ With Your Tea</p>
+                <p class="desc">Nutritious glucose biscuits - perfect tea companion</p>
+                <div class="price-footer">
+                    <span class="price">₹10/pack</span>
+                    <div class="card-action">
+                        <button class="btn-small" onclick="addItem(event,4,'Parle-G Biscuit',10,'🍪')">Add 🛒</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="products.html" class="btn-primary">View All Products →</a>
+    </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="container" style="background:#fff8f3;border-radius:20px;padding:60px 40px;">
+    <h2 class="section-title">😍 What Our Customers Say</h2>
+    <div class="testimonials">
+        <div class="testimonial-card">
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p>"DoorDrop saved my late night cravings! Super fast delivery and awesome discounts!"</p>
+            <p class="author">- Raj Kumar, Hostel B</p>
+        </div>
+        <div class="testimonial-card">
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p>"Best snack delivery app! Way cheaper than retail stores and items are always fresh."</p>
+            <p class="author">- Priya Singh, Girls Hostel</p>
+        </div>
+        <div class="testimonial-card">
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p>"15-20 minute delivery is insane! Perfect for lazy days. Highly recommended!"</p>
+            <p class="author">- Aman Verma, Hostel A</p>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="reviews.html" class="btn-primary">Read All Reviews →</a>
+    </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-section">
+    <h2>Craving Your Favorite Snacks?</h2>
+    <p>Join 100,000+ happy students and get 40% off on your first order!</p>
+    <div class="cta-buttons" style="justify-content:center;">
+        <a href="products.html" class="btn-primary">Start Shopping Now</a>
+        <a href="contact.html" class="btn-secondary">📞 Contact Us</a>
+    </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About DoorDrop</h3>
+            <p>We're committed to delivering your favorite snacks quickly and affordably to your hostel room.</p>
+            <div class="contact-info">
+                <p>📱 +91-9876543210</p>
+                <p>📧 support@doordrop.com</p>
+                <p>📍 123 Market Street, City Center</p>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Information</h3>
+            <ul>
+                <li><a href="#">Delivery Policy</a></li>
+                <li><a href="#">Return & Refund</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Subscribe & Save</h3>
+            <p>Get exclusive deals straight to your inbox!</p>
+            <div class="form-group" style="margin-bottom:0;">
+                <input type="email" id="newsletterEmail" placeholder="Enter your email" style="margin-bottom:10px;">
+                <button class="btn-primary" onclick="subscribeNewsletter()" style="width:100%;">Subscribe</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 DoorDrop. All rights reserved. | Made with 🔴 for Snack Lovers</p>
+    </div>
+</footer>
+
+<div id="toast" class="toast"></div>
+
+<!-- ══ CART OVERLAY + SIDEBAR ══ -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-sidebar-head">
+        <div>
+            <h3>🛒 Your Cart</h3>
+            <div class="cart-head-count" id="cartHeadCount">0 items</div>
+        </div>
+        <button class="cart-close-btn" onclick="closeCart()">✕</button>
+    </div>
+    <div class="cart-items-scroll" id="cartItemsList">
+        <div class="cart-empty-state">
+            <div class="cart-empty-icon">🛒</div>
+            <p>Your cart is empty.<br>Start adding snacks!</p>
+        </div>
+    </div>
+    <div class="cart-sidebar-foot">
+        <div class="cart-total-row">
+            <span>Total</span>
+            <span class="cart-total-amount" id="cartTotalAmt">₹0</span>
+        </div>
+        <div class="cart-free-del">🚚 Free delivery on orders above ₹199</div>
+        <button class="cart-checkout-btn" onclick="openCheckout()">Proceed to Checkout →</button>
+    </div>
+</aside>
+
+<!-- ══ CHECKOUT MODAL ══ -->
+<div class="checkout-modal-bg" id="checkoutModalBg">
+    <div class="checkout-modal">
+        <div class="checkout-modal-head">
+            <h3>📋 Complete Your Order</h3>
+            <button class="cart-close-btn" onclick="closeCheckout()">✕</button>
+        </div>
+        <div class="checkout-modal-body">
+            <div class="checkout-order-box" id="checkoutSummaryBox"></div>
+            <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" id="co_name" placeholder="Your full name">
+            </div>
+            <div class="form-group">
+                <label>Phone Number *</label>
+                <input type="tel" id="co_phone" placeholder="10-digit mobile number" maxlength="10">
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" id="co_email" placeholder="Your email (optional)">
+            </div>
+            <div class="form-group">
+                <label>🏠 Hostel Name *</label>
+                 <select id="co_hostel">
+                    <option value="">Select your hostel</option>
+                    <option>Archimedes Hostel</option>
+                    <option>Franklin Hostel</option>
+                    <option>Magellan Hostel</option>
+                    <option>Aristotle Hostel</option>
+                    <option>Alfred Nobel Hostel</option>
+                    <option>Marco Polo Hostel</option>
+                    <option>Armstrong Hostel</option>
+                    <option>Vasco da Gama Hostel</option>
+                    <option>Columbus Hostel</option>
+                    <option>IBN Hostel</option>
+                    <option>NGH Hostel</option>
+                    <option>PI Hostel</option>
+                </select>
+            </div>
+            <div class="hostel-fields-row">
+                <div class="form-group" style="margin-bottom:0;">
+                    <label>🏢 Floor *</label>
+                    <select id="co_floor">
+                        <option value="">Select floor</option>
+                        <option value="Ground">Ground Floor</option>
+                        <option value="1st">1st Floor</option>
+                        <option value="2nd">2nd Floor</option>
+                        <option value="3rd">3rd Floor</option>
+                        <option value="4th">4th Floor</option>
+                        <option value="5th">5th Floor</option>
+                        <option value="6th">6th Floor</option>
+                        <option value="7th">7th Floor</option>
+                        <option value="8th">8th Floor</option>
+                        <option value="9th">9th Floor</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom:0;">
+                    <label>🚪 Room Number *</label>
+                    <input type="text" id="co_room" placeholder="e.g. 204">
+                </div>
+            </div>
+            <div class="form-group" style="margin-top:20px;">
+                <label>Payment Method *</label>
+                <select id="co_payment">
+                    <option value="">Select payment method</option>
+                    <option value="cod">Cash on Delivery</option>
+                    <option value="upi">UPI Payment</option>
+                    <option value="card">Credit / Debit Card</option>
+                    <option value="netbanking">Net Banking</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Promo Code</label>
+                <div class="promo-row">
+                    <input type="text" id="co_promo" placeholder="e.g. DROP40">
+                    <button class="btn-small" onclick="applyPromo()">Apply</button>
+                </div>
+            </div>
+            <button class="cart-checkout-btn" onclick="placeOrder()" style="margin-top:20px;">✅ Place Order</button>
+        </div>
+    </div>
+</div>
+
+<!-- ══ SUCCESS MODAL ══ -->
+<div class="success-modal-bg" id="successModalBg">
+    <div class="success-modal-box">
+        <div class="success-check">✅</div>
+        <h2>Order Placed Successfully!</h2>
+        <p>Thank you for ordering with DoorDrop. Your delicious snacks are on the way!</p>
+        <div class="success-order-id" id="successOrderId">DD000000</div>
+        <div class="success-delivery-note" id="successDeliveryNote"></div>
+        <button class="btn-primary" onclick="closeSuccess()">Back to Home</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

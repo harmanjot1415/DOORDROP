@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - DoorDrop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="window.location.href='index.html'">🎉 Door<span>Drop</span></div>
+            <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-cart-btn" onclick="openCart()">🛒 Cart <span class="cart-badge" id="cartBadge">0</span></button>
+        </div>
+    </nav>
+
+    <section class="hero" style="min-height:300px;">
+        <div class="hero-content">
+            <h1>Our Awesome <span class="highlight">Snack Store</span></h1>
+            <p>500+ premium snacks at unbeatable prices. Fast delivery to your room!</p>
+        </div>
+    </section>
+
+    <section class="container" style="padding-top:40px;padding-bottom:40px;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-bottom:30px;">
+            <div>
+                <input type="search" placeholder="🔍 Search snacks..."
+                    style="width:100%;padding:12px;border:1px solid #d0daf0;border-radius:8px;font-size:14px;font-family:'Poppins',sans-serif;background:#fafbff;"
+                    onkeyup="searchProducts(this.value)">
+            </div>
+            <div>
+                <select style="width:100%;padding:12px;border:1px solid #d0daf0;border-radius:8px;font-size:14px;font-family:'Poppins',sans-serif;background:#fafbff;"
+                    onchange="sortProducts(this.value)">
+                    <option value="">Sort by...</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                </select>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                <button class="filter-btn btn-primary active" onclick="filterProducts('all')">All</button>
+                <button class="filter-btn btn-secondary" onclick="filterProducts('noodles')" style="padding:12px 20px;">Noodles</button>
+                <button class="filter-btn btn-secondary" onclick="filterProducts('chips')" style="padding:12px 20px;">Chips</button>
+                <button class="filter-btn btn-secondary" onclick="filterProducts('biscuits')" style="padding:12px 20px;">Biscuits</button>
+                <button class="filter-btn btn-secondary" onclick="filterProducts('beverages')" style="padding:12px 20px;">Beverages</button>
+                <button class="filter-btn btn-secondary" onclick="filterProducts('chocolates')" style="padding:12px 20px;">Chocolates</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" style="padding-top:0;">
+        <div class="products-grid">
+
+            <!-- ============ INSTANT NOODLES ============ -->
+            <div class="product-card" id="card-101" data-category="noodles" data-name="Maggi 2-Minute Noodles" data-price="12" data-icon="🍜">
+                <div class="product-image"><img src="maggi.jpg" alt="🍜"><span class="product-badge">Best Seller</span></div>
+                <div class="product-body">
+                    <h3>Maggi 2-Minute Noodles</h3>
+                    <p>🌶️ Classic Masala</p>
+                    <p class="desc">India's #1 instant noodles - quick and delicious!</p>
+                    <div class="price-footer"><span class="price">₹12/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,101,'Maggi 2-Minute Noodles',12,'🍜')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-102" data-category="noodles" data-name="Top Ramen Noodles" data-price="13" data-icon="🍜">
+                <div class="product-image"><img src="top ramen.jpg" alt="hee"><span class="product-badge">Popular</span></div>
+                <div class="product-body">
+                    <h3>Top Ramen Noodles</h3>
+                    <p>🌶️ Spicy Masala</p>
+                    <p class="desc">Authentic ramen taste with perfect spice level.</p>
+                    <div class="price-footer"><span class="price">₹13/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,102,'Top Ramen Noodles',13,'🍜')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-103" data-category="noodles" data-name="Yippee Noodles" data-price="10" data-icon="🍜">
+                <div class="product-image"><img src="yippee.jpg" alt=""><span class="product-badge">Sale -10%</span></div>
+                <div class="product-body">
+                    <h3>Yippee Noodles</h3>
+                    <p>🌟 Tasty & Affordable</p>
+                    <p class="desc">Budget-friendly noodles with great taste.</p>
+                    <div class="price-footer"><span class="price">₹10/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,103,'Yippee Noodles',10,'🍜')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-104" data-category="noodles" data-name="Sunfeast Yippee Smart Noodles" data-price="15" data-icon="🍜">
+                <div class="product-image"><img src="yippee smart.jpg" alt=""><span class="product-badge">Healthy</span></div>
+                <div class="product-body">
+                    <h3>Sunfeast Yippee Smart</h3>
+                    <p>🥗 Healthier Choice</p>
+                    <p class="desc">Made with whole wheat for better nutrition.</p>
+                    <div class="price-footer"><span class="price">₹15/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,104,'Sunfeast Yippee Smart Noodles',15,'🍜')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-105" data-category="noodles" data-name="Chings Hakka Noodles" data-price="18" data-icon="🍜">
+                <div class="product-image"><img src="Chings Hakka Noodles.jpg" alt=""><span class="product-badge">Fusion</span></div>
+                <div class="product-body">
+                    <h3>Chings Hakka Noodles</h3>
+                    <p>🥢 Indo-Chinese</p>
+                    <p class="desc">Perfect for making fried noodles at home.</p>
+                    <div class="price-footer"><span class="price">₹18/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,105,'Chings Hakka Noodles',18,'🍜')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-106" data-category="noodles" data-name="Wai Wai Noodles" data-price="9" data-icon="🍜">
+                <div class="product-image"><img src="Wai Wai Noodles.jpg" alt=""><span class="product-badge">Cheap</span></div>
+                <div class="product-body">
+                    <h3>Wai Wai Noodles</h3>
+                    <p>💰 Super Budget</p>
+                    <p class="desc">Economy pack with good taste and value.</p>
+                    <div class="price-footer"><span class="price">₹9/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,106,'Wai Wai Noodles',9,'🍜')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-107" data-category="noodles" data-name="Munchow Chowmein" data-price="14" data-icon="🍜">
+                <div class="product-image"><img src="Manchow Chowmein.jpg" alt=""><span class="product-badge">Trending</span></div>
+                <div class="product-body">
+                    <h3>Manchow Chowmein</h3>
+                    <p>🌶️ Spicy Twist</p>
+                    <p class="desc">Ready to cook chowmein with authentic flavors.</p>
+                    <div class="price-footer"><span class="price">₹14/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,107,'Munchow Chowmein',14,'🍜')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-108" data-category="noodles" data-name="Bhukkad Noodles" data-price="11" data-icon="🍜">
+                <div class="product-image"><img src="Bhukkad Noodles.jpg" alt="">><span class="product-badge">New</span></div>
+                <div class="product-body">
+                    <h3>Bhukkad Noodles</h3>
+                    <p>🔥 Bold & Spicy</p>
+                    <p class="desc">Extra spicy noodles for spice lovers.</p>
+                    <div class="price-footer"><span class="price">₹11/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,108,'Bhukkad Noodles',11,'🍜')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-109" data-category="noodles" data-name="Ching's Secret Noodles" data-price="16" data-icon="🍜">
+                <div class="product-image"><img src="Ching's Secret Noodles.jpg" alt=""><span class="product-badge">Premium</span></div>
+                <div class="product-body">
+                    <h3>Ching's Secret Noodles</h3>
+                    <p>✨ Premium Quality</p>
+                    <p class="desc">Made with select ingredients for best taste.</p>
+                    <div class="price-footer"><span class="price">₹16/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,109,'Ching\'s Secret Noodles',16,'🍜')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-110" data-category="noodles" data-name="Rara Noodles" data-price="12" data-icon="🍜">
+                <div class="product-image"><img src="Rara Noodles.jpg" alt=""><span class="product-badge">Classic</span></div>
+                <div class="product-body">
+                    <h3>Rara Noodles</h3>
+                    <p>🍲 Traditional Taste</p>
+                    <p class="desc">Old school favorite with authentic flavors.</p>
+                    <div class="price-footer"><span class="price">₹12/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,110,'Rara Noodles',12,'🍜')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ CHIPS & CRISPS ============ -->
+            <div class="product-card" id="card-201" data-category="chips" data-name="Lays Classic Chips" data-price="20" data-icon="🥔">
+                <div class="product-image"><img src="Lays Classic Chips.jpg" alt=""><span class="product-badge">Best Seller</span></div>
+                <div class="product-body">
+                    <h3>Lays Classic Chips</h3>
+                    <p>🌟 Golden & Crispy</p>
+                    <p class="desc">Perfectly salted crispy potato chips.</p>
+                    <div class="price-footer"><span class="price">₹20/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,201,'Lays Classic Chips',20,'🥔')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-202" data-category="chips" data-name="Kurkure Masala Munch" data-price="18" data-icon="🟠">
+                <div class="product-image"><img src="Kurkure Masala Munch.jpg" alt=""><span class="product-badge">Popular</span></div>
+                <div class="product-body">
+                    <h3>Kurkure Masala Munch</h3>
+                    <p>🔥 Spicy & Crunchy</p>
+                    <p class="desc">Twisted corn snacks with Indian masala.</p>
+                    <div class="price-footer"><span class="price">₹18/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,202,'Kurkure Masala Munch',18,'🟠')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-203" data-category="chips" data-name="Bingo Potato Chips" data-price="19" data-icon="🥔">
+                <div class="product-image"><img src="Bingo Potato Chips.jpg" alt=""><span class="product-badge">Crispy</span></div>
+                <div class="product-body">
+                    <h3>Bingo Potato Chips</h3>
+                    <p>✨ Ultimate Crunch</p>
+                    <p class="desc">Baked potato chips with bold flavors.</p>
+                    <div class="price-footer"><span class="price">₹19/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,203,'Bingo Potato Chips',19,'🥔')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-204" data-category="chips" data-name="Lays Magic Masala" data-price="22" data-icon="🥔">
+                <div class="product-image"><img src="Lays Magic Masala.jpg" alt=""><span class="product-badge">Flavored</span></div>
+                <div class="product-body">
+                    <h3>Lays Magic Masala</h3>
+                    <p>🌶️ Spicy Delight</p>
+                    <p class="desc">Lays with special Indian masala seasoning.</p>
+                    <div class="price-footer"><span class="price">₹22/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,204,'Lays Magic Masala',22,'🥔')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-205" data-category="chips" data-name="Uncle Chips" data-price="18" data-icon="🥔">
+                <div class="product-image"><img src="Uncle Chips.jpg" alt=""><span class="product-badge">Premium</span></div>
+                <div class="product-body">
+                    <h3>Uncle Chips</h3>
+                    <p>🎉 Fun & Tasty</p>
+                    <p class="desc">Thick cut potato chips for real crunch.</p>
+                    <div class="price-footer"><span class="price">₹18/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,205,'Uncle Chips',18,'🥔')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-206" data-category="chips" data-name="Doritos Nacho Cheese" data-price="25" data-icon="🟡">
+                <div class="product-image"><img src="Doritos Nacho Cheese.jpg" alt=""><span class="product-badge">International</span></div>
+                <div class="product-body">
+                    <h3>Doritos Nacho Cheese</h3>
+                    <p>🧀 Cheesy Flavor</p>
+                    <p class="desc">Tangy cheese flavored tortilla chips.</p>
+                    <div class="price-footer"><span class="price">₹25/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,206,'Doritos Nacho Cheese',25,'🟡')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-207" data-category="chips" data-name="Cheetos Crunchy" data-price="20" data-icon="🟠">
+                <div class="product-image"><img src="Cheetos Crunchy.jpg" alt=""><span class="product-badge">Crunchy</span></div>
+                <div class="product-body">
+                    <h3>Cheetos Crunchy</h3>
+                    <p>🔥 Cheesy & Spicy</p>
+                    <p class="desc">Dangerously cheesy corn puffs.</p>
+                    <div class="price-footer"><span class="price">₹20/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,207,'Cheetos Crunchy',20,'🟠')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-208" data-category="chips" data-name="Puffcorn Delight" data-price="17" data-icon="🟡">
+                <div class="product-image"><img src="Puffcorn Delight.jpg" alt=""><span class="product-badge">Light</span></div>
+                <div class="product-body">
+                    <h3>Puffcorn Delight</h3>
+                    <p>☁️ Airy & Tasty</p>
+                    <p class="desc">Light and crispy puffed corn snacks.</p>
+                    <div class="price-footer"><span class="price">₹17/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,208,'Puffcorn Delight',17,'🟡')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-209" data-category="chips" data-name="Haldiram's Bhujia" data-price="25" data-icon="🟤">
+                <div class="product-image"><img src="Haldiram's Bhujia.jpg" alt=""><span class="product-badge">Traditional</span></div>
+                <div class="product-body">
+                    <h3>Haldiram's Bhujia</h3>
+                    <p>🥒 Traditional Indian</p>
+                    <p class="desc">Classic Indian savory snack - super crispy.</p>
+                    <div class="price-footer"><span class="price">₹25/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,209,'Haldiram\'s Bhujia',25,'🟤')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-210" data-category="chips" data-name="ITC Nimbu Chips" data-price="15" data-icon="🟡">
+                <div class="product-image"><img src="ITC Nimbu Chips.jpg" alt=""><span class="product-badge">Tangy</span></div>
+                <div class="product-body">
+                    <h3>ITC Nimbu Chips</h3>
+                    <p>🍋 Sour & Spicy</p>
+                    <p class="desc">Lemon flavored potato chips with punch.</p>
+                    <div class="price-footer"><span class="price">₹15/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,210,'ITC Nimbu Chips',15,'🟡')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ BISCUITS & COOKIES ============ -->
+            <div class="product-card" id="card-301" data-category="biscuits" data-name="Parle-G Biscuit" data-price="10" data-icon="🍪">
+                <div class="product-image"><img src="Parle-G Biscuit.jpg" alt=""><span class="product-badge">Best Seller</span></div>
+                <div class="product-body">
+                    <h3>Parle-G Biscuit</h3>
+                    <p>☕ Tea Time Buddy</p>
+                    <p class="desc">India's favorite glucose biscuits.</p>
+                    <div class="price-footer"><span class="price">₹10/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,301,'Parle-G Biscuit',10,'🍪')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-302" data-category="biscuits" data-name="Britannia Marie Biscuit" data-price="12" data-icon="🍪">
+                <div class="product-image"><img src="britannia marie biscuit.jpg" alt=""><span class="product-badge">Popular</span></div>
+                <div class="product-body">
+                    <h3>Britannia Marie Biscuit</h3>
+                    <p>🌟 Premium Taste</p>
+                    <p class="desc">Delicate and crispy marie biscuits.</p>
+                    <div class="price-footer"><span class="price">₹12/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,302,'Britannia Marie Biscuit',12,'🍪')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-303" data-category="biscuits" data-name="Digestive Biscuit" data-price="14" data-icon="🍪">
+                <div class="product-image"><img src="Digestive Biscuit.jpg" alt=""><span class="product-badge">Healthy</span></div>
+                <div class="product-body">
+                    <h3>Digestive Biscuit</h3>
+                    <p>🥗 Nutritious</p>
+                    <p class="desc">Whole grain biscuits for health.</p>
+                    <div class="price-footer"><span class="price">₹14/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,303,'Digestive Biscuit',14,'🍪')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-304" data-category="biscuits" data-name="Oreo Cookies" data-price="30" data-icon="🍪">
+                <div class="product-image"><img src="Oreo Cookies.jpg" alt=""><span class="product-badge">Premium</span></div>
+                <div class="product-body">
+                    <h3>Oreo Cookies</h3>
+                    <p>🖤 Cream Delight</p>
+                    <p class="desc">Chocolate cookies with cream filling.</p>
+                    <div class="price-footer"><span class="price">₹30/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,304,'Oreo Cookies',30,'🍪')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-305" data-category="biscuits" data-name="Sunfeast Good Day" data-price="22" data-icon="🍪">
+                <div class="product-image"><img src="Sunfeast Good Day.jpg" alt=""><span class="product-badge">Flavored</span></div>
+                <div class="product-body">
+                    <h3>Sunfeast Good Day</h3>
+                    <p>✨ Chocolate Cookies</p>
+                    <p class="desc">Tasty chocolate chip cookies.</p>
+                    <div class="price-footer"><span class="price">₹22/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,305,'Sunfeast Good Day',22,'🍪')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-306" data-category="biscuits" data-name="Britannia Bourbon" data-price="16" data-icon="🍪">
+                <div class="product-image"><img src="Britannia Bourbon.jpg" alt=""><span class="product-badge">Classic</span></div>
+                <div class="product-body">
+                    <h3>Britannia Bourbon</h3>
+                    <p>🖤 Chocolate Cream</p>
+                    <p class="desc">Classic bourbon biscuits with cream.</p>
+                    <div class="price-footer"><span class="price">₹16/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,306,'Britannia Bourbon',16,'🍪')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-307" data-category="biscuits" data-name="Hide & Seek Biscuit" data-price="20" data-icon="🍪">
+                <div class="product-image"><img src="Hide & Seek Biscuit.jpg" alt=""><span class="product-badge">Trending</span></div>
+                <div class="product-body">
+                    <h3>Hide & Seek Biscuit</h3>
+                    <p>🍫 Choco Chip</p>
+                    <p class="desc">Cookies with chocolate chips hidden inside.</p>
+                    <div class="price-footer"><span class="price">₹20/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,307,'Hide & Seek Biscuit',20,'🍪')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-308" data-category="biscuits" data-name="Tiger Biscuit" data-price="11" data-icon="🍪">
+                <div class="product-image"><img src="Tiger Biscuit.jpg" alt=""><span class="product-badge">Budget</span></div>
+                <div class="product-body">
+                    <h3>Tiger Biscuit</h3>
+                    <p>🌟 Economic Pack</p>
+                    <p class="desc">Affordable and tasty biscuits.</p>
+                    <div class="price-footer"><span class="price">₹11/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,308,'Tiger Biscuit',11,'🍪')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-309" data-category="biscuits" data-name="Britannia Tiger Biscuit" data-price="13" data-icon="🍪">
+                <div class="product-image"><img src="Britannia Tiger Biscuit.jpg" alt=""><span class="product-badge">Popular</span></div>
+                <div class="product-body">
+                    <h3>Britannia Tiger Biscuit</h3>
+                    <p>🐯 Crunchy & Tasty</p>
+                    <p class="desc">Tiger version with extra crunch.</p>
+                    <div class="price-footer"><span class="price">₹13/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,309,'Britannia Tiger Biscuit',13,'🍪')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-310" data-category="biscuits" data-name="Sunfeast Digestive" data-price="15" data-icon="🍪">
+                <div class="product-image"><img src="Sunfeast Digestive.jpg" alt=""><span class="product-badge">Healthy</span></div>
+                <div class="product-body">
+                    <h3>Sunfeast Digestive</h3>
+                    <p>🥗 Whole Grain</p>
+                    <p class="desc">Nutritious whole grain digestive biscuits.</p>
+                    <div class="price-footer"><span class="price">₹15/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,310,'Sunfeast Digestive',15,'🍪')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ BEVERAGES ============ -->
+            <div class="product-card" id="card-401" data-category="beverages" data-name="Nescafé Instant Coffee" data-price="60" data-icon="☕">
+                <div class="product-image"><img src="Nescafé Instant Coffee.jpg" alt=""><span class="product-badge">Best Seller</span></div>
+                <div class="product-body">
+                    <h3>Nescafé Instant Coffee</h3>
+                    <p>☕ Morning Brew</p>
+                    <p class="desc">Premium instant coffee for quick delight.</p>
+                    <div class="price-footer"><span class="price">₹60/jar</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,401,'Nescafé Instant Coffee',60,'☕')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-402" data-category="beverages" data-name="Brooke Bond Tea" data-price="40" data-icon="🍵">
+                <div class="product-image"><img src="Brooke Bond Tea.jpg" alt=""><span class="product-badge">Popular</span></div>
+                <div class="product-body">
+                    <h3>Brooke Bond Tea</h3>
+                    <p>🍵 Classic Tea</p>
+                    <p class="desc">Premium tea leaves for perfect cuppa.</p>
+                    <div class="price-footer"><span class="price">₹40/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,402,'Brooke Bond Tea',40,'🍵')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-403" data-category="beverages" data-name="Lipton Yellow Label Tea" data-price="35" data-icon="🍵">
+                <div class="product-image"><img src="Lipton Yellow Label Tea.jpg" alt=""><span class="product-badge">Premium</span></div>
+                <div class="product-body">
+                    <h3>Lipton Yellow Label Tea</h3>
+                    <p>🌟 International Brand</p>
+                    <p class="desc">World famous tea brand - smooth & flavorful.</p>
+                    <div class="price-footer"><span class="price">₹35/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,403,'Lipton Yellow Label Tea',35,'🍵')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-404" data-category="beverages" data-name="Sting Energy Drink" data-price="45" data-icon="🥤">
+                <div class="product-image"><img src="Sting Energy Drink.jpg" alt=""><span class="product-badge">Energy</span></div>
+                <div class="product-body">
+                    <h3>Sting Energy Drink</h3>
+                    <p>⚡ Power Boost</p>
+                    <p class="desc">Get energized instantly with Sting.</p>
+                    <div class="price-footer"><span class="price">₹45/can</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,404,'Sting Energy Drink',45,'🥤')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-405" data-category="beverages" data-name="Red Bull Energy Drink" data-price="80" data-icon="🥤">
+                <div class="product-image"><img src="Red Bull Energy Drink.jpg" alt=""><span class="product-badge">Premium</span></div>
+                <div class="product-body">
+                    <h3>Red Bull Energy Drink</h3>
+                    <p>⚡ Wings Energy</p>
+                    <p class="desc">Gives you wings! Premium energy drink.</p>
+                    <div class="price-footer"><span class="price">₹80/can</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,405,'Red Bull Energy Drink',80,'🥤')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-406" data-category="beverages" data-name="Frooti Mango Drink" data-price="25" data-icon="🥭">
+                <div class="product-image"><img src="Frooti Mango Drink.jpg" alt=""><span class="product-badge">Fruity</span></div>
+                <div class="product-body">
+                    <h3>Frooti Mango Drink</h3>
+                    <p>🥭 Sweet Mango</p>
+                    <p class="desc">Refreshing mango flavored drink.</p>
+                    <div class="price-footer"><span class="price">₹25/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,406,'Frooti Mango Drink',25,'🥭')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-407" data-category="beverages" data-name="Maaza Orange Drink" data-price="28" data-icon="🟠">
+                <div class="product-image"><img src="Maaza Orange Drink.jpg" alt=""><span class="product-badge">Citrus</span></div>
+                <div class="product-body">
+                    <h3>Maaza Orange Drink</h3>
+                    <p>🍊 Sunny Orange</p>
+                    <p class="desc">Tangy orange flavored thirst quencher.</p>
+                    <div class="price-footer"><span class="price">₹28/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,407,'Maaza Orange Drink',28,'🟠')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-408" data-category="beverages" data-name="Thumbs Up Cola" data-price="30" data-icon="🥤">
+                <div class="product-image"><img src="Thumbs Up Cola.jpg" alt=""><span class="product-badge">Cola</span></div>
+                <div class="product-body">
+                    <h3>Thumbs Up Cola</h3>
+                    <p>👍 Taste of India</p>
+                    <p class="desc">Crispy cola with bold Indian taste.</p>
+                    <div class="price-footer"><span class="price">₹30/bottle</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,408,'Thumbs Up Cola',30,'🥤')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-409" data-category="beverages" data-name="Sprite Lemon" data-price="28" data-icon="🥤">
+                <div class="product-image"><img src="Sprite Lemon.jpg" alt=""><span class="product-badge">Refreshing</span></div>
+                <div class="product-body">
+                    <h3>Sprite Lemon</h3>
+                    <p>🍋 Crisp & Clear</p>
+                    <p class="desc">Obey your thirst with Sprite.</p>
+                    <div class="price-footer"><span class="price">₹28/bottle</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,409,'Sprite Lemon',28,'🥤')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-410" data-category="beverages" data-name="Fanta Orange" data-price="25" data-icon="🟠">
+                <div class="product-image"><img src="Fanta Orange.jpg" alt=""><span class="product-badge">Fun</span></div>
+                <div class="product-body">
+                    <h3>Fanta Orange</h3>
+                    <p>🌈 Vibrant & Fun</p>
+                    <p class="desc">Colorful fizzy orange soda.</p>
+                    <div class="price-footer"><span class="price">₹25/bottle</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,410,'Fanta Orange',25,'🟠')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ CHOCOLATES & CANDIES ============ -->
+            <div class="product-card" id="card-501" data-category="chocolates" data-name="Cadbury Dairy Milk" data-price="30" data-icon="🍫">
+                <div class="product-image"><img src="Cadbury Dairy Milk.jpg" alt=""><span class="product-badge">Best Seller</span></div>
+                <div class="product-body">
+                    <h3>Cadbury Dairy Milk</h3>
+                    <p>🍫 Silky Smooth</p>
+                    <p class="desc">India's favorite chocolate - taste of love!</p>
+                    <div class="price-footer"><span class="price">₹30/bar</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,501,'Cadbury Dairy Milk',30,'🍫')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-502" data-category="chocolates" data-name="Ferrero Rocher" data-price="80" data-icon="🍫">
+                <div class="product-image"><img src="Ferrero Rocher.jpg" alt=""><span class="product-badge">Premium</span></div>
+                <div class="product-body">
+                    <h3>Ferrero Rocher</h3>
+                    <p>✨ Golden Moments</p>
+                    <p class="desc">Premium chocolate with hazelnut wafer.</p>
+                    <div class="price-footer"><span class="price">₹80/piece</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,502,'Ferrero Rocher',80,'🍫')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-503" data-category="chocolates" data-name="Snickers Bar" data-price="35" data-icon="🍫">
+                <div class="product-image"><img src="Snickers Bar.jpg" alt=""><span class="product-badge">Energy</span></div>
+                <div class="product-body">
+                    <h3>Snickers Bar</h3>
+                    <p>🥜 Nutty Power</p>
+                    <p class="desc">Peanuts, caramel, nougat & chocolate.</p>
+                    <div class="price-footer"><span class="price">₹35/bar</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,503,'Snickers Bar',35,'🍫')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-504" data-category="chocolates" data-name="Mars Bar" data-price="32" data-icon="🍫">
+                <div class="product-image"><img src="Mars Bar.jpg" alt=""><span class="product-badge">Popular</span></div>
+                <div class="product-body">
+                    <h3>Mars Bar</h3>
+                    <p>🌟 Caramel Heaven</p>
+                    <p class="desc">Nougat, caramel & chocolate combination.</p>
+                    <div class="price-footer"><span class="price">₹32/bar</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,504,'Mars Bar',32,'🍫')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-505" data-category="chocolates" data-name="Amul Dark Chocolate" data-price="20" data-icon="🍫">
+                <div class="product-image"><img src="Amul Dark Chocolate.jpg" alt=""><span class="product-badge">Dark</span></div>
+                <div class="product-body">
+                    <h3>Amul Dark Chocolate</h3>
+                    <p>🖤 Rich & Bold</p>
+                    <p class="desc">Pure dark chocolate goodness.</p>
+                    <div class="price-footer"><span class="price">₹20/bar</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,505,'Amul Dark Chocolate',20,'🍫')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-506" data-category="chocolates" data-name="Lindt Lindor Truffle" data-price="100" data-icon="🍫">
+                <div class="product-image"><img src="Lindt Lindor Truffle.jpg" alt=""><span class="product-badge">Luxury</span></div>
+                <div class="product-body">
+                    <h3>Lindt Lindor Truffle</h3>
+                    <p>✨ Melting Moment</p>
+                    <p class="desc">Swiss chocolate truffle - melts in mouth.</p>
+                    <div class="price-footer"><span class="price">₹100/piece</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,506,'Lindt Lindor Truffle',100,'🍫')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-507" data-category="chocolates" data-name="Hershey's Milk Chocolate" data-price="40" data-icon="🍫">
+                <div class="product-image"><img src="Hershey's Milk Chocolate.jpg" alt=""><span class="product-badge">Classic</span></div>
+                <div class="product-body">
+                    <h3>Hershey's Milk Chocolate</h3>
+                    <p>🌟 American Classic</p>
+                    <p class="desc">America's favorite milk chocolate.</p>
+                    <div class="price-footer"><span class="price">₹40/bar</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,507,'Hershey\'s Milk Chocolate',40,'🍫')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-508" data-category="chocolates" data-name="KitKat Chocolate" data-price="25" data-icon="🍫">
+                <div class="product-image"><img src="KitKat Chocolate.jpg" alt=""><span class="product-badge">Break Time</span></div>
+                <div class="product-body">
+                    <h3>KitKat Chocolate</h3>
+                    <p>⏰ Have A Break</p>
+                    <p class="desc">Crispy wafer covered in chocolate.</p>
+                    <div class="price-footer"><span class="price">₹25/bar</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,508,'KitKat Chocolate',25,'🍫')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-509" data-category="chocolates" data-name="Milkybar Chocolate" data-price="20" data-icon="🍫">
+                <div class="product-image"><img src="Milkybar Chocolate.jpg" alt=""><span class="product-badge">Milk</span></div>
+                <div class="product-body">
+                    <h3>Milkybar Chocolate</h3>
+                    <p>🥛 Creamy White</p>
+                    <p class="desc">White chocolate bar for white chocolate lovers.</p>
+                    <div class="price-footer"><span class="price">₹20/bar</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,509,'Milkybar Chocolate',20,'🍫')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="card-510" data-category="chocolates" data-name="Candyland Toffee" data-price="15" data-icon="🍬">
+                <div class="product-image"><img src="Candyland Toffee.jpg" alt=""><span class="product-badge">Candy</span></div>
+                <div class="product-body">
+                    <h3>Candyland Toffee</h3>
+                    <p>🍬 Sweet Treat</p>
+                    <p class="desc">Yummy toffees for sweet cravings.</p>
+                    <div class="price-footer"><span class="price">₹15/pack</span>
+                        <div class="card-action"><button class="btn-small" onclick="addItem(event,510,'Candyland Toffee',15,'🍬')">Add 🛒</button></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta-section" style="margin-top:0;">
+        <h2>Delivered Right to Your Room in 15-20 Minutes!</h2>
+        <p>Super fast delivery, best snacks, awesome discounts! Order now and save 40% on first purchase.</p>
+        <button class="btn-primary" onclick="openCart()">View Cart & Checkout 🛒</button>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About DoorDrop</h3>
+                <p>We deliver your favorite snacks quickly and affordably to your hostel room.</p>
+                <div class="contact-info">
+                    <p>📱 +91-9876543210</p>
+                    <p>📧 support@doordrop.com</p>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Information</h3>
+                <ul>
+                    <li><a href="#">Delivery Policy</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#">🔵 Facebook</a></li>
+                    <li><a href="#">📷 Instagram</a></li>
+                    <li><a href="#">🐦 Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 DoorDrop. All rights reserved. | Made with 🔴 for Snack Lovers</p>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast"></div>
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-sidebar-head">
+            <div>
+                <h3>🛒 Your Cart</h3>
+                <div class="cart-head-count" id="cartHeadCount">0 items</div>
+            </div><button class="cart-close-btn" onclick="closeCart()">✕</button>
+        </div>
+        <div class="cart-items-scroll" id="cartItemsList">
+            <div class="cart-empty-state">
+                <div class="cart-empty-icon">🛒</div>
+                <p>Your cart is empty.<br>Start adding snacks!</p>
+            </div>
+        </div>
+        <div class="cart-sidebar-foot">
+            <div class="cart-total-row"><span>Total</span><span class="cart-total-amount" id="cartTotalAmt">₹0</span></div>
+            <div class="cart-free-del">🚚 Free delivery on orders above ₹199</div><button class="cart-checkout-btn" onclick="openCheckout()">Proceed to Checkout →</button>
+        </div>
+    </aside>
+    <div class="checkout-modal-bg" id="checkoutModalBg">
+        <div class="checkout-modal">
+            <div class="checkout-modal-head">
+                <h3>📋 Complete Your Order</h3><button class="cart-close-btn" onclick="closeCheckout()">✕</button>
+            </div>
+            <div class="checkout-modal-body">
+                <div class="checkout-order-box" id="checkoutSummaryBox"></div>
+                <div class="form-group"><label>Full Name *</label><input type="text" id="co_name" placeholder="Your full name"></div>
+                <div class="form-group"><label>Phone Number *</label><input type="tel" id="co_phone" placeholder="10-digit mobile number" maxlength="10"></div>
+                <div class="form-group"><label>Email Address</label><input type="email" id="co_email" placeholder="Your email (optional)"></div>
+                <div class="form-group">
+                    <label>🏠 Hostel Name *</label>
+                    <select id="co_hostel">
+                    <option value="">Select your hostel</option>
+                    <option>Archimedes Hostel</option>
+                    <option>Franklin Hostel</option>
+                    <option>Magellan Hostel</option>
+                    <option>Aristotle Hostel</option>
+                    <option>Alfred Nobel Hostel</option>
+                    <option>Marco Polo Hostel</option>
+                    <option>Armstrong Hostel</option>
+                    <option>Vasco da Gama Hostel</option>
+                    <option>Columbus Hostel</option>
+                    <option>IBN Hostel</option>
+                    <option>NGH Hostel</option>
+                    <option>PI Hostel</option>
+                </select>
+            </div>
+            <div class="hostel-fields-row">
+                <div class="form-group" style="margin-bottom:0;">
+                    <label>🏢 Floor *</label>
+                    <select id="co_floor">
+                        <option value="">Select floor</option>
+                        <option value="Ground">Ground Floor</option>
+                        <option value="1st">1st Floor</option>
+                        <option value="2nd">2nd Floor</option>
+                        <option value="3rd">3rd Floor</option>
+                        <option value="4th">4th Floor</option>
+                        <option value="5th">5th Floor</option>
+                        <option value="6th">6th Floor</option>
+                        <option value="7th">7th Floor</option>
+                        <option value="8th">8th Floor</option>
+                        <option value="9th">9th Floor</option>
+                    </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom:0;">
+                        <label>🚪 Room Number *</label>
+                        <input type="text" id="co_room" placeholder="e.g. 204">
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top:20px;"><label>Payment Method *</label>
+                    <select id="co_payment">
+                        <option value="">Select payment method</option>
+                        <option value="cod">Cash on Delivery</option>
+                        <option value="upi">UPI Payment</option>
+                        <option value="card">Credit / Debit Card</option>
+                        <option value="netbanking">Net Banking</option>
+                    </select>
+                </div>
+                <div class="form-group"><label>Promo Code</label>
+                    <div class="promo-row"><input type="text" id="co_promo" placeholder="e.g. DROP40"><button class="btn-small" onclick="applyPromo()">Apply</button></div>
+                </div>
+                <button class="cart-checkout-btn" onclick="placeOrder()" style="margin-top:20px;">✅ Place Order</button>
+            </div>
+        </div>
+    </div>
+    <div class="success-modal-bg" id="successModalBg">
+        <div class="success-modal-box">
+            <div class="success-check">✅</div>
+            <h2>Order Placed Successfully!</h2>
+            <p>Thank you for shopping with DoorDrop. Your snacks are on the way!</p>
+            <div class="success-order-id" id="successOrderId">DD000000</div>
+            <div class="success-delivery-note" id="successDeliveryNote"></div>
+            <button class="btn-primary" onclick="closeSuccess()">Back to Home</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

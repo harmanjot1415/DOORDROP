@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - DoorDrop</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="window.location.href='index.html'">🎉 Door<span>Drop</span></div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="reviews.html" class="active">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-cart-btn" onclick="openCart()">🛒 Cart <span class="cart-badge"
+                    id="cartBadge">0</span></button>
+        </div>
+    </nav>
+
+    <section class="hero" style="min-height:300px;">
+        <div class="hero-content">
+            <h1>What Our Customers <span class="highlight">Say</span></h1>
+            <p>Join 100,000+ happy students who love DoorDrop</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">⭐ Customer Reviews</h2>
+        <p class="section-subtitle">Real feedback from our amazing customers</p>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;margin-top:50px;">
+
+            <div class="testimonial-card"
+                style="background:white;padding:30px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);border-left:5px solid #ff6b35;">
+                <div class="rating" style="color:#ffc107;font-size:18px;margin-bottom:10px;">⭐⭐⭐⭐⭐</div>
+                <p style="font-style:italic;margin:15px 0;">"DoorDrop is a lifesaver! I get my favorite snacks in just
+                    15 minutes and save so much money. The prices are unbeatable!"</p>
+                <p style="font-weight:600;color:#333;">Raj Kumar</p>
+                <p style="color:#666;font-size:13px;">📍 Hostel B | 📅 2 weeks ago</p>
+            </div>
+
+            <div class="testimonial-card"
+                style="background:white;padding:30px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);border-left:5px solid #ff6b35;">
+                <div class="rating" style="color:#ffc107;font-size:18px;margin-bottom:10px;">⭐⭐⭐⭐⭐</div>
+                <p style="font-style:italic;margin:15px 0;">"The app is so easy to use! I can order in seconds. The
+                    delivery is always on time and items are fresh. Highly recommended!"</p>
+                <p style="font-weight:600;color:#333;">Priya Singh</p>
+                <p style="color:#666;font-size:13px;">📍 Girls Hostel | 📅 1 week ago</p>
+            </div>
+
+            <div class="testimonial-card"
+                style="background:white;padding:30px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);border-left:5px solid #ff6b35;">
+                <div class="rating" style="color:#ffc107;font-size:18px;margin-bottom:10px;">⭐⭐⭐⭐⭐</div>
+                <p style="font-style:italic;margin:15px 0;">"Best snack delivery service ever! Super fast, amazing
+                    prices, and excellent customer support. I order daily!"</p>
+                <p style="font-weight:600;color:#333;">Aman Verma</p>
+                <p style="color:#666;font-size:13px;">📍 Hostel A | 📅 3 days ago</p>
+            </div>
+
+            <div class="testimonial-card"
+                style="background:white;padding:30px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);border-left:5px solid #ff6b35;">
+                <div class="rating" style="color:#ffc107;font-size:18px;margin-bottom:10px;">⭐⭐⭐⭐⭐</div>
+                <p style="font-style:italic;margin:15px 0;">"Got 40% off on my first order! The service is super
+                    reliable. No more going to the market, everything at my doorstep."</p>
+                <p style="font-weight:600;color:#333;">Neha Patel</p>
+                <p style="color:#666;font-size:13px;">📍 Hostel C | 📅 5 days ago</p>
+            </div>
+
+            <div class="testimonial-card"
+                style="background:white;padding:30px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);border-left:5px solid #ff6b35;">
+                <div class="rating" style="color:#ffc107;font-size:18px;margin-bottom:10px;">⭐⭐⭐⭐⭐</div>
+                <p style="font-style:italic;margin:15px 0;">"Maggi, chips, chocolates - everything is available and
+                    super affordable. Delivery is always within the promised time. Love it!"</p>
+                <p style="font-weight:600;color:#333;">Arjun Singh</p>
+                <p style="color:#666;font-size:13px;">📍 Hostel D | 📅 1 day ago</p>
+            </div>
+
+            <div class="testimonial-card"
+                style="background:white;padding:30px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);border-left:5px solid #ff6b35;">
+                <div class="rating" style="color:#ffc107;font-size:18px;margin-bottom:10px;">⭐⭐⭐⭐⭐</div>
+                <p style="font-style:italic;margin:15px 0;">"Customer service is amazing! They helped me with an issue
+                    very quickly. Great company, great service, great prices!"</p>
+                <p style="font-weight:600;color:#333;">Zara Khan</p>
+                <p style="color:#666;font-size:13px;">📍 Hostel E | 📅 4 days ago</p>
+            </div>
+
+            <div class="testimonial-card"
+                style="background:white;padding:30px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);border-left:5px solid #ff6b35;">
+                <div class="rating" style="color:#ffc107;font-size:18px;margin-bottom:10px;">⭐⭐⭐⭐⭐</div>
+                <p style="font-style:italic;margin:15px 0;">"I recommend DoorDrop to all my friends. No delivery charges
+                    on orders above 199, fast service, fresh products. Perfect!"</p>
+                <p style="font-weight:600;color:#333;">Vikram Patel</p>
+                <p style="color:#666;font-size:13px;">📍 Hostel F | 📅 6 days ago</p>
+            </div>
+
+            <div class="testimonial-card"
+                style="background:white;padding:30px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);border-left:5px solid #ff6b35;">
+                <div class="rating" style="color:#ffc107;font-size:18px;margin-bottom:10px;">⭐⭐⭐⭐⭐</div>
+                <p style="font-style:italic;margin:15px 0;">"DoorDrop makes hostel life easier! No more long lines at
+                    shops. Just order from room, snacks arrive quickly. Amazing app!"</p>
+                <p style="font-weight:600;color:#333;">Anjali Sharma</p>
+                <p style="color:#666;font-size:13px;">📍 Girls Hostel | 📅 1 week ago</p>
+            </div>
+
+            <div class="testimonial-card"
+                style="background:white;padding:30px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);border-left:5px solid #ff6b35;">
+                <div class="rating" style="color:#ffc107;font-size:18px;margin-bottom:10px;">⭐⭐⭐⭐⭐</div>
+                <p style="font-style:italic;margin:15px 0;">"Everything is fresh and original. Payment options are
+                    flexible. Been ordering for 2 months now, zero complaints!"</p>
+                <p style="font-weight:600;color:#333;">Rohan Das</p>
+                <p style="color:#666;font-size:13px;">📍 Hostel G | 📅 10 days ago</p>
+            </div>
+
+            <div class="testimonial-card"
+                style="background:white;padding:30px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);border-left:5px solid #ff6b35;">
+                <div class="rating" style="color:#ffc107;font-size:18px;margin-bottom:10px;">⭐⭐⭐⭐⭐</div>
+                <p style="font-style:italic;margin:15px 0;">"Last minute cravings? DoorDrop delivers in minutes! The
+                    variety is amazing - noodles, chips, biscuits, chocolates, everything!"</p>
+                <p style="font-weight:600;color:#333;">Isha Gupta</p>
+                <p style="color:#666;font-size:13px;">📍 Hostel H | 📅 3 days ago</p>
+            </div>
+
+            <div class="testimonial-card"
+                style="background:white;padding:30px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);border-left:5px solid #ff6b35;">
+                <div class="rating" style="color:#ffc107;font-size:18px;margin-bottom:10px;">⭐⭐⭐⭐⭐</div>
+                <p style="font-style:italic;margin:15px 0;">"Never thought snack delivery could be this good. Reliable,
+                    affordable, and super fast. DoorDrop is the best!"</p>
+                <p style="font-weight:600;color:#333;">Karan Malhotra</p>
+                <p style="color:#666;font-size:13px;">📍 Hostel I | 📅 2 weeks ago</p>
+            </div>
+
+            <div class="testimonial-card"
+                style="background:white;padding:30px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);border-left:5px solid #ff6b35;">
+                <div class="rating" style="color:#ffc107;font-size:18px;margin-bottom:10px;">⭐⭐⭐⭐⭐</div>
+                <p style="font-style:italic;margin:15px 0;">"The best part? No delivery fee on orders over 199! I save
+                    money and get quick delivery. Win-win for me!"</p>
+                <p style="font-weight:600;color:#333;">Divya Sharma</p>
+                <p style="color:#666;font-size:13px;">📍 Hostel J | 📅 4 days ago</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section style="background:#fff8f3;padding:60px 40px;border-radius:20px;margin:60px 0;text-align:center;">
+        <h2 style="margin-bottom:10px;">Join 100,000+ Happy Customers!</h2>
+        <p style="margin-bottom:30px;color:#666;">Experience the fastest, most affordable snack delivery service</p>
+        <a href="products.html" class="btn-primary">Order Your Favorite Snacks Now →</a>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">Why Choose DoorDrop?</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-top:40px;">
+            <div style="text-align:center;">
+                <div style="font-size:40px;margin-bottom:10px;">🚀</div>
+                <h3>Super Fast</h3>
+                <p>15-20 mins delivery</p>
+            </div>
+            <div style="text-align:center;">
+                <div style="font-size:40px;margin-bottom:10px;">💰</div>
+                <h3>Best Prices</h3>
+                <p>40% cheaper</p>
+            </div>
+            <div style="text-align:center;">
+                <div style="font-size:40px;margin-bottom:10px;">✨</div>
+                <h3>Fresh Products</h3>
+                <p>Always fresh</p>
+            </div>
+            <div style="text-align:center;">
+                <div style="font-size:40px;margin-bottom:10px;">🎁</div>
+                <h3>Great Offers</h3>
+                <p>Daily deals</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready to Order?</h2>
+        <p>Get 40% off on your first order with code DROP40!</p>
+        <div class="cta-buttons" style="justify-content:center;">
+            <a href="products.html" class="btn-primary">Shop Now</a>
+            <a href="contact.html" class="btn-secondary">Contact Us</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About DoorDrop</h3>
+                <p>We're committed to delivering your favorite snacks quickly and affordably to your hostel room.</p>
+                <div class="contact-info">
+                    <p>📱 +91-9876543210</p>
+                    <p>📧 support@doordrop.com</p>
+                    <p>📍 123 Market Street, City Center</p>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Information</h3>
+                <ul>
+                    <li><a href="#">Delivery Policy</a></li>
+                    <li><a href="#">Return & Refund</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Subscribe & Save</h3>
+                <p>Get exclusive deals straight to your inbox!</p>
+                <div class="form-group" style="margin-bottom:0;">
+                    <input type="email" id="newsletterEmail" placeholder="Enter your email" style="margin-bottom:10px;">
+                    <button class="btn-primary" onclick="subscribeNewsletter()" style="width:100%;">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 DoorDrop. All rights reserved. | Made with 🔴 for Snack Lovers</p>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast"></div>
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-sidebar-head">
+            <div>
+                <h3>🛒 Your Cart</h3>
+                <div class="cart-head-count" id="cartHeadCount">0 items</div>
+            </div>
+            <button class="cart-close-btn" onclick="closeCart()">✕</button>
+        </div>
+        <div class="cart-items-scroll" id="cartItemsList">
+            <div class="cart-empty-state">
+                <div class="cart-empty-icon">🛒</div>
+                <p>Your cart is empty.<br>Start adding snacks!</p>
+            </div>
+        </div>
+        <div class="cart-sidebar-foot">
+            <div class="cart-total-row">
+                <span>Total</span>
+                <span class="cart-total-amount" id="cartTotalAmt">₹0</span>
+            </div>
+            <div class="cart-free-del">🚚 Free delivery on orders above ₹199</div>
+            <button class="cart-checkout-btn" onclick="openCheckout()">Proceed to Checkout →</button>
+        </div>
+    </aside>
+
+    <div class="checkout-modal-bg" id="checkoutModalBg">
+        <div class="checkout-modal">
+            <div class="checkout-modal-head">
+                <h3>📋 Complete Your Order</h3>
+                <button class="cart-close-btn" onclick="closeCheckout()">✕</button>
+            </div>
+            <div class="checkout-modal-body">
+                <div class="checkout-order-box" id="checkoutSummaryBox"></div>
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" id="co_name" placeholder="Your full name">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number *</label>
+                    <input type="tel" id="co_phone" placeholder="10-digit mobile number" maxlength="10">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="co_email" placeholder="Your email (optional)">
+                </div>
+                <div class="form-group">
+                    <label>🏠 Hostel Name *</label>
+                    <select id="co_hostel">
+                        <option value="">Select your hostel</option>
+                        <option>Archimedes Hostel</option>
+                        <option>Franklin Hostel</option>
+                        <option>Magellan Hostel</option>
+                        <option>Aristotle Hostel</option>
+                        <option>Alfred Nobel Hostel</option>
+                        <option>Marco Polo Hostel</option>
+                        <option>Armstrong Hostel</option>
+                        <option>Vasco da Gama Hostel</option>
+                        <option>Columbus Hostel</option>
+                        <option>IBN Hostel</option>
+                        <option>NGH Hostel</option>
+                        <option>PI Hostel</option>
+                    </select>
+                </div>
+                <div class="hostel-fields-row">
+                    <div class="form-group" style="margin-bottom:0;">
+                        <label>🏢 Floor *</label>
+                        <select id="co_floor">
+                            <option value="">Select floor</option>
+                            <option value="Ground">Ground Floor</option>
+                            <option value="1st">1st Floor</option>
+                            <option value="2nd">2nd Floor</option>
+                            <option value="3rd">3rd Floor</option>
+                            <option value="4th">4th Floor</option>
+                            <option value="5th">5th Floor</option>
+                            <option value="6th">6th Floor</option>
+                            <option value="7th">7th Floor</option>
+                            <option value="8th">8th Floor</option>
+                            <option value="9th">9th Floor</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom:0;">
+                        <label>🚪 Room Number *</label>
+                        <input type="text" id="co_room" placeholder="e.g. 204">
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top:20px;">
+                    <label>Payment Method *</label>
+                    <select id="co_payment">
+                        <option value="">Select payment method</option>
+                        <option value="cod">Cash on Delivery</option>
+                        <option value="upi">UPI Payment</option>
+                        <option value="card">Credit / Debit Card</option>
+                        <option value="netbanking">Net Banking</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Promo Code</label>
+                    <div class="promo-row">
+                        <input type="text" id="co_promo" placeholder="e.g. DROP40">
+                        <button class="btn-small" onclick="applyPromo()">Apply</button>
+                    </div>
+                </div>
+                <button class="cart-checkout-btn" onclick="placeOrder()" style="margin-top:20px;">✅ Place Order</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="success-modal-bg" id="successModalBg">
+        <div class="success-modal-box">
+            <div class="success-check">✅</div>
+            <h2>Order Placed Successfully!</h2>
+            <p>Thank you for shopping with DoorDrop. Your snacks are on the way to your room!</p>
+            <div class="success-order-id" id="successOrderId">DD000000</div>
+            <div class="success-delivery-note" id="successDeliveryNote"></div>
+            <button class="btn-primary" onclick="closeSuccess()">Back to Home</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
