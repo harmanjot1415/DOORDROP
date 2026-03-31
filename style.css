@@ -1060,7 +1060,7 @@ html {
 
 .filter-btn.active {
     background: linear-gradient(135deg, #ff6b35, #f7931e);
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 /* ============ RESPONSIVE ============ */
@@ -1146,6 +1146,7 @@ html {
     .btn-primary,
     .btn-secondary {
         width: 100%;
+        color: black;
     }
 
     .features-preview {
