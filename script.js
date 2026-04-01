@@ -1,34 +1,5 @@
-// ============ NAVIGATION TOGGLE ============
-function toggleMenu() {
-    const navLinks = document.getElementById('navLinks');
-    navLinks.classList.toggle('active');
-}
 
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        document.getElementById('navLinks').classList.remove('active');
-    });
-});
 
-function updateActiveNav() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        const href = link.getAttribute('href');
-        link.classList.remove('active');
-        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-            link.classList.add('active');
-        }
-    });
-}
-updateActiveNav();
-
-// ============ SCROLL TO SECTION ============
-function scrollToSection(sectionId) {
-    const element = document.getElementById(sectionId);
-    if (element) element.scrollIntoView({ behavior: 'smooth' });
-}
-
-// ============ TOAST NOTIFICATION ============
 function showToast(message) {
     const toast = document.getElementById('toast');
     if (toast) {
@@ -38,9 +9,6 @@ function showToast(message) {
     }
 }
 
-// =============================================
-//   CART SYSTEM
-// =============================================
 let cart = {}; // { id: { name, price, icon, qty } }
 
 // Open / Close Sidebar
@@ -84,16 +52,7 @@ function cartCount() {
     return Object.values(cart).reduce((s, i) => s + i.qty, 0);
 }
 
-// ── Update badge in navbar ──
-function updateBadge() {
-    const badge = document.getElementById('cartBadge');
-    if (!badge) return;
-    const n = cartCount();
-    badge.textContent = n;
-    badge.classList.remove('pop');
-    void badge.offsetWidth;
-    if (n > 0) badge.classList.add('pop');
-}
+
 
 // ── Add item (called from product card buttons) ──
 function addItem(event, id, name, price, icon) {
@@ -204,6 +163,77 @@ function renderCheckoutSummary() {
     `;
 }
 
+
+// __ Apply Promo __
+function applyPromo() {
+    const promo = document.getElementById('co_promo').value.toUpperCase();
+    if (promo === 'DROP40') {
+        showToast('✅ Promo DROP40 applied! 40% discount on first order');
+    } else if (promo === '') {
+        showToast('⚠️ Please enter a promo code');
+    } else {
+        showToast('❌ Invalid promo code!');
+    }
+}
+
+// __ Subscribe Newsletter __
+function subscribeNewsletter() {
+    const email = document.getElementById('newsletterEmail').value.trim();
+    if (!email.includes('@')) {
+        showToast('❌ Please enter a valid email!');
+        return;
+    }
+    showToast('✅ Subscribed! Check your email for exclusive deals.');
+    document.getElementById('newsletterEmail').value = '';
+}
+
+
+function searchProducts(query) {
+    const cards = document.querySelectorAll('.product-card');
+    const q = query.toLowerCase();
+
+    cards.forEach(card => {
+        const name = card.dataset.name.toLowerCase();
+        if (name.includes(q)) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+function sortProducts(option) {
+    const grid = document.querySelector('.products-grid');
+    const cards = Array.from(document.querySelectorAll('.product-card'));
+
+    if (option === 'price-low') {
+        cards.sort((a, b) => parseFloat(a.dataset.price) - parseFloat(b.dataset.price));
+    } else if (option === 'price-high') {
+        cards.sort((a, b) => parseFloat(b.dataset.price) - parseFloat(a.dataset.price));
+    }
+
+    grid.innerHTML = '';
+    cards.forEach(card => grid.appendChild(card));
+}
+
+function filterProducts(category) {
+    const cards = document.querySelectorAll('.product-card');
+    const btns = document.querySelectorAll('.filter-btn');
+
+    btns.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+
+
 // __ Place Order __
 function placeOrder() {
     const name = document.getElementById('co_name').value.trim();
@@ -243,141 +273,15 @@ function placeOrder() {
     document.getElementById('co_promo').value = '';
 }
 
-// __ Apply Promo __
-function applyPromo() {
-    const promo = document.getElementById('co_promo').value.toUpperCase();
-    if (promo === 'DROP40') {
-        showToast('✅ Promo DROP40 applied! 40% discount on first order');
-    } else if (promo === '') {
-        showToast('⚠️ Please enter a promo code');
-    } else {
-        showToast('❌ Invalid promo code!');
-    }
+
+
+// ── Update badge in navbar ──
+function updateBadge() {
+    const badge = document.getElementById('cartBadge');
+    if (!badge) return;
+    const n = cartCount();
+    badge.textContent = n;
+    badge.classList.remove('pop');
+    void badge.offsetWidth;
+    if (n > 0) badge.classList.add('pop');
 }
-
-// __ Subscribe Newsletter __
-function subscribeNewsletter() {
-    const email = document.getElementById('newsletterEmail').value.trim();
-    if (!email || !email.includes('@')) {
-        showToast('❌ Please enter a valid email!');
-        return;
-    }
-    showToast('✅ Subscribed! Check your email for exclusive deals.');
-    document.getElementById('newsletterEmail').value = '';
-}
-
-// =============================================
-//   PRODUCT FILTERING & SEARCH
-// =============================================
-function filterProducts(category) {
-    const cards = document.querySelectorAll('.product-card');
-    const btns = document.querySelectorAll('.filter-btn');
-
-    btns.forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-
-    cards.forEach(card => {
-        if (category === 'all' || card.dataset.category === category) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-}
-
-function searchProducts(query) {
-    const cards = document.querySelectorAll('.product-card');
-    const q = query.toLowerCase();
-
-    cards.forEach(card => {
-        const name = card.dataset.name.toLowerCase();
-        if (name.includes(q)) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-}
-
-function sortProducts(option) {
-    const grid = document.querySelector('.products-grid');
-    const cards = Array.from(document.querySelectorAll('.product-card'));
-
-    if (option === 'price-low') {
-        cards.sort((a, b) => parseFloat(a.dataset.price) - parseFloat(b.dataset.price));
-    } else if (option === 'price-high') {
-        cards.sort((a, b) => parseFloat(b.dataset.price) - parseFloat(a.dataset.price));
-    }
-
-    grid.innerHTML = '';
-    cards.forEach(card => grid.appendChild(card));
-}
-
-// =============================================
-//   ANIMATIONS
-// =============================================
-function rotateCard(el) {
-    el.style.transform = 'rotateY(5deg) rotateX(-5deg)';
-}
-
-function resetCard(el) {
-    el.style.transform = 'rotateY(0) rotateX(0)';
-}
-
-// __ Animate count on stat items __
-function animateCount(el) {
-    const h3 = el.querySelector('h3');
-    const target = parseInt(h3.dataset.count);
-    const current = h3;
-    let count = 0;
-    const increment = Math.ceil(target / 30);
-    const timer = setInterval(() => {
-        count += increment;
-        if (count >= target) {
-            current.textContent = target + (isNaN(target) ? '' : '+');
-            clearInterval(timer);
-        } else {
-            current.textContent = count + '+';
-        }
-    }, 30);
-}
-
-// ============ COUNTDOWN TIMER ============
-function startCountdown() {
-    const updateTimer = () => {
-        const now = new Date().getTime();
-        const endTime = new Date(now + 24 * 60 * 60 * 1000).getTime();
-
-        const timer = setInterval(() => {
-            const timeLeft = endTime - new Date().getTime();
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-            const hoursEl = document.getElementById('hours');
-            const minutesEl = document.getElementById('minutes');
-            const secondsEl = document.getElementById('seconds');
-
-            if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
-            if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
-            if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
-
-            if (timeLeft <= 0) {
-                clearInterval(timer);
-            }
-        }, 1000);
-    };
-    updateTimer();
-}
-
-// Start on page load
-document.addEventListener('DOMContentLoaded', () => {
-    updateBadge();
-    startCountdown();
-});
-
-// Close modals on outside click
-document.addEventListener('click', (e) => {
-    if (e.target.id === 'cartOverlay') closeCart();
-    if (e.target.id === 'checkoutModalBg') closeCheckout();
-});
