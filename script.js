@@ -207,29 +207,4 @@ function closeSuccess() {
 }
 
 
-function searchProducts(query) {
-    const cards = document.querySelectorAll('.product-card');
-    const q = query.toLowerCase();
 
-    cards.forEach(card => {
-        const name = card.dataset.name.toLowerCase();
-        card.style.display = name.includes(q) ? 'block' : 'none';
-    });
-}
-
-
-function filterProducts(category) {
-    const cards = document.querySelectorAll('.product-card');
-    const btns  = document.querySelectorAll('.filter-btn');
-
-    btns.forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-
-    cards.forEach(card => {
-        if (category === 'all' || card.dataset.category === category) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-}
