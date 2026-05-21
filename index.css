@@ -15,8 +15,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/* ============ NAVIGATION ============ */
-
 .navbar {
     background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
     padding: 12px 50px;
@@ -143,8 +141,6 @@ html {
     transition: all 0.3s;
 }
 
-/* ============ HERO SECTION ============ */
-
 .hero {
     background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff8c42 100%);
     color: white;
@@ -216,8 +212,6 @@ html {
     filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
 }
 
-/* ============ BUTTONS ============ */
-
 .cta-buttons {
     display: flex;
     gap: 20px;
@@ -280,8 +274,6 @@ html {
     transform: scale(1.05);
 }
 
-/* ============ STATS ============ */
-
 .stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -326,8 +318,6 @@ html {
     font-weight: 500;
 }
 
-/* ============ CONTAINER ============ */
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -349,8 +339,6 @@ html {
     margin-bottom: 40px;
     font-weight: 500;
 }
-
-/* ============ FEATURE CARDS ============ */
 
 .features-preview {
     display: grid;
@@ -395,8 +383,6 @@ html {
     line-height: 1.6;
     font-weight: 400;
 }
-
-/* ============ OFFER SECTION ============ */
 
 .offer-section {
     background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
@@ -465,8 +451,6 @@ html {
     margin-top: 5px;
     opacity: 0.9;
 }
-
-/* ============ PRODUCTS GRID ============ */
 
 .products-grid {
     display: grid;
@@ -552,8 +536,6 @@ html {
     color: #ff6b35;
 }
 
-/* ============ TESTIMONIALS ============ */
-
 .testimonials {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -592,8 +574,6 @@ html {
     margin-bottom: 5px;
 }
 
-/* ============ CTA SECTION ============ */
-
 .cta-section {
     background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
     padding: 60px 40px;
@@ -614,8 +594,6 @@ html {
     margin-bottom: 30px;
     opacity: 0.95;
 }
-
-/* ============ FOOTER ============ */
 
 .footer {
     background: #1f1f1f;
@@ -677,8 +655,6 @@ html {
     color: #777;
     font-size: 13px;
 }
-
-/* ============ CART SIDEBAR ============ */
 
 .cart-overlay {
     position: fixed;
@@ -832,8 +808,6 @@ html {
     box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
 }
 
-/* ============ CHECKOUT MODAL ============ */
-
 .checkout-modal-bg,
 .success-modal-bg {
     position: fixed;
@@ -939,8 +913,6 @@ html {
     flex: 1;
 }
 
-/* ============ SUCCESS MODAL ============ */
-
 .success-modal-box {
     text-align: center;
     padding: 40px 30px;
@@ -983,8 +955,6 @@ html {
     margin-bottom: 20px;
 }
 
-/* ============ TOAST ============ */
-
 .toast {
     position: fixed;
     bottom: 20px;
@@ -1003,8 +973,6 @@ html {
 .toast.show {
     display: block;
 }
-
-/* ============ RESPONSIVE ============ */
 
 @media (max-width: 768px) {
     .navbar {
