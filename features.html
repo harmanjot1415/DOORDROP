@@ -19,7 +19,7 @@
             <li><a href="reviews.html">Reviews</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-        <button class="nav-cart-btn" onclick="openCart()">🛒 Cart <span class="cart-badge" id="cartBadge">0</span></button>
+       
     </div>
 </nav>
 
@@ -196,125 +196,5 @@
     </div>
 </footer>
 
-<div id="toast" class="toast"></div>
-<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
-<aside class="cart-sidebar" id="cartSidebar">
-    <div class="cart-sidebar-head">
-        <div>
-            <h3>🛒 Your Cart</h3>
-            <div class="cart-head-count" id="cartHeadCount">0 items</div>
-        </div>
-        <button class="cart-close-btn" onclick="closeCart()">✕</button>
-    </div>
-    <div class="cart-items-scroll" id="cartItemsList">
-        <div class="cart-empty-state">
-            <div class="cart-empty-icon">🛒</div>
-            <p>Your cart is empty.<br>Start adding snacks!</p>
-        </div>
-    </div>
-    <div class="cart-sidebar-foot">
-        <div class="cart-total-row">
-            <span>Total</span>
-            <span class="cart-total-amount" id="cartTotalAmt">₹0</span>
-        </div>
-        <div class="cart-free-del">🚚 Free delivery on orders above ₹199</div>
-        <button class="cart-checkout-btn" onclick="openCheckout()">Proceed to Checkout →</button>
-    </div>
-</aside>
 
-<div class="checkout-modal-bg" id="checkoutModalBg">
-    <div class="checkout-modal">
-        <div class="checkout-modal-head">
-            <h3>📋 Complete Your Order</h3>
-            <button class="cart-close-btn" onclick="closeCheckout()">✕</button>
-        </div>
-        <div class="checkout-modal-body">
-            <div class="checkout-order-box" id="checkoutSummaryBox"></div>
-            <div class="form-group">
-                <label>Full Name *</label>
-                <input type="text" id="co_name" placeholder="Your full name">
-            </div>
-            <div class="form-group">
-                <label>Phone Number *</label>
-                <input type="tel" id="co_phone" placeholder="10-digit mobile number" maxlength="10">
-            </div>
-            <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" id="co_email" placeholder="Your email (optional)">
-            </div>
-            <div class="form-group">
-                <label>🏠 Hostel Name *</label>
-                 <select id="co_hostel">
-                    <option value="">Select your hostel</option>
-                    <option>Archimedes Hostel</option>
-                    <option>Franklin Hostel</option>
-                    <option>Magellan Hostel</option>
-                    <option>Aristotle Hostel</option>
-                    <option>Alfred Nobel Hostel</option>
-                    <option>Marco Polo Hostel</option>
-                    <option>Armstrong Hostel</option>
-                    <option>Vasco da Gama Hostel</option>
-                    <option>Columbus Hostel</option>
-                    <option>IBN Hostel</option>
-                    <option>NGH Hostel</option>
-                    <option>PI Hostel</option>
-                </select>
-            </div>
-            <div class="hostel-fields-row">
-                <div class="form-group" style="margin-bottom:0;">
-                    <label>🏢 Floor *</label>
-                    <select id="co_floor">
-                        <option value="">Select floor</option>
-                        <option value="Ground">Ground Floor</option>
-                        <option value="1st">1st Floor</option>
-                        <option value="2nd">2nd Floor</option>
-                        <option value="3rd">3rd Floor</option>
-                        <option value="4th">4th Floor</option>
-                        <option value="5th">5th Floor</option>
-                        <option value="6th">6th Floor</option>
-                        <option value="7th">7th Floor</option>
-                        <option value="8th">8th Floor</option>
-                        <option value="9th">9th Floor</option>
-                    </select>
-                </div>
-                <div class="form-group" style="margin-bottom:0;">
-                    <label>🚪 Room Number *</label>
-                    <input type="text" id="co_room" placeholder="e.g. 204">
-                </div>
-            </div>
-            <div class="form-group" style="margin-top:20px;">
-                <label>Payment Method *</label>
-                <select id="co_payment">
-                    <option value="">Select payment method</option>
-                    <option value="cod">Cash on Delivery</option>
-                    <option value="upi">UPI Payment</option>
-                    <option value="card">Credit / Debit Card</option>
-                    <option value="netbanking">Net Banking</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Promo Code</label>
-                <div class="promo-row">
-                    <input type="text" id="co_promo" placeholder="e.g. DROP40">
-                    <button class="btn-small" onclick="applyPromo()">Apply</button>
-                </div>
-            </div>
-            <button class="cart-checkout-btn" onclick="placeOrder()" style="margin-top:20px;">✅ Place Order</button>
-        </div>
-    </div>
-</div>
 
-<div class="success-modal-bg" id="successModalBg">
-    <div class="success-modal-box">
-        <div class="success-check">✅</div>
-        <h2>Order Placed Successfully!</h2>
-        <p>Thank you for shopping with DoorDrop. Your snacks are on the way to your room!</p>
-        <div class="success-order-id" id="successOrderId">DD000000</div>
-        <div class="success-delivery-note" id="successDeliveryNote"></div>
-        <button class="btn-primary" onclick="closeSuccess()">Back to Home</button>
-    </div>
-</div>
-
-<script src="script.js"></script>
-</body>
-</html>
