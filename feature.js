@@ -36,7 +36,7 @@ function setupNewsletter() {
     let emailInput = document.getElementById("newsletterEmail");
 
     emailInput.addEventListener("input", function () {
-        emailInput.style.border = "1px solid #ccc";
+        emailInput.style.border = "1px solid #080808";
     });
 }
 
@@ -60,28 +60,31 @@ function subscribeNewsletter() {
     }
 }
 
+function startCounters() {
+
+    setCounter("customers", 100000, 1000);
+    setCounter("orders", 250000, 2000);
+    setCounter("products", 500, 10);
+    setCounter("rating", 4.9, 0.1);
+}
+
 function setCounter(id, endValue, speed) {
 
     let count = 0;
-
     let counter = document.getElementById(id);
 
     let interval = setInterval(function () {
 
         count = count + speed;
 
-        // Decimal value ke liye
         if (id === "rating") {
             counter.innerText = count.toFixed(1);
         } else {
             counter.innerText = Math.floor(count);
         }
 
-        // Stop counter
         if (count >= endValue) {
-
             counter.innerText = endValue;
-
             clearInterval(interval);
         }
 
