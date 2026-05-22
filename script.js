@@ -175,39 +175,3 @@ function applyPromo() {
     }
 }
 
-function startCountdown() {
-    const updateTimer = () => {
-        const now = new Date().getTime();
-        const endTime = new Date(now + 24 * 60 * 60 * 1000).getTime();
-
-        const timer = setInterval(() => {
-            const timeLeft = endTime - new Date().getTime();
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-            const hoursEl = document.getElementById('hours');
-            const minutesEl = document.getElementById('minutes');
-            const secondsEl = document.getElementById('seconds');
-
-            if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
-            if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
-            if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
-
-            if (timeLeft <= 0) {
-                clearInterval(timer);
-            }
-        }, 1000);
-    };
-    updateTimer();
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    updateBadge();
-    startCountdown();
-});
-
-document.addEventListener('click', (e) => {
-    if (e.target.id === 'cartOverlay') closeCart();
-    if (e.target.id === 'checkoutModalBg') closeCheckout();
-});
